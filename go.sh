@@ -25,7 +25,6 @@ for file in ./AlignedPhotos/*_*.jpg_Aligned.jpg; do
   mv "$file" "$new_name"
 done
 
-ffmpeg -framerate 12 -i ./AlignedPhotos/%d.jpg -c:v libx264 -r 30 -pix_fmt
-yuv420p output.mp4
+ffmpeg -framerate 12 -i ./AlignedPhotos/%d.jpg -c:v libx264 -r 30 -pix_fmt yuv420p output.mp4
 
 python ./upload.py
