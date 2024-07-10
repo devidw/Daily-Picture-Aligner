@@ -71,4 +71,3 @@ for file in tqdm(fileListSorted):
         else:
             pass
 print("\nSuccessfully Aligned " + str(count) +" Pictures!\nIf you found this script useful, please let me know, I would love your feedback! If you want to directly support my future (college, projects, etc.), my CashApp is $ANoahBuchanan.")
-input("Press Enter to exit: ")
