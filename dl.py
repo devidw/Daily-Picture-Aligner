@@ -1,6 +1,11 @@
 import dropbox
 import os
 
-storage = dropbox.Dropbox(oauth2_access_token=os.environ.get("DROPBOX_API_KEY"))
+# Create a Dropbox client using the refresh token
+dbx = dropbox.Dropbox(
+        oauth2_refresh_token=os.environ.get("DROPBOX_REFRESH_TOKEN"), 
+        app_key=os.environ.get("APP_KEY"),
+        app_secret=os.environ.get("APP_SECRET"),
+        )
 
-storage.files_download_zip_to_file("./dl.zip", "/Apps/Close-up")
+dbx.files_download_zip_to_file("./dl.zip", "/Apps/Close-up")

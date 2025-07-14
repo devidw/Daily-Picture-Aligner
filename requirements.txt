@@ -1,4 +1,7 @@
-mediapipe==0.10.8
+# note mediapipe only works up to python3.10 atm
+
+# mediapipe==0.10.8
+mediapipe==0.10.21
 numpy==1.26.2
 opencv_contrib_python==4.8.1.78
 opencv_python==4.8.1.78

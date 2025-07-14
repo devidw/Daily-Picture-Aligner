@@ -1,3 +1,10 @@
+source ./abc/bin/activate
+source ./.env
+
+mkdir -p ./dl
+
+rm -r ./dl
+
 python ./dl.py
 
 unzip ./dl.zip -d dl
@@ -25,6 +32,8 @@ for file in ./AlignedPhotos/*_*.jpg_Aligned.jpg; do
   mv "$file" "$new_name"
 done
 
-ffmpeg -framerate 12 -i ./AlignedPhotos/%d.jpg -c:v libx264 -r 30 -pix_fmt yuv420p output.mp4
+convert -size 2316x3088 xc:white ./AlignedPhotos/0.jpg
 
-python ./upload.py
+ffmpeg -y -framerate 12 -i ./AlignedPhotos/%d.jpg -c:v libvpx-vp9 -crf 50 -b:v 0 -r 30 -pix_fmt yuv420p output.webm
+
+# python ./upload.py
